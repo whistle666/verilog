@@ -37,9 +37,10 @@ ila_0 your_instance_name (
 );
 
 
-dejitter inst1(clk,~rst_n,add,add_out);//按键消抖
+dejitter inst1(clk,rst_n,add,add_out);//按键消抖
 clock inst2(clk,rst_n,load,add_out,dir,s,f,m);
 uart_rx inst3(clk,rst_n,rx,rx_data,valid);
+
 binary_bcd inst4(m,m_BCD);
 binary_bcd inst5(f,f_BCD);
 binary_bcd inst6(s,s_BCD);
@@ -50,6 +51,7 @@ always@(posedge clk)begin
     if(~rst_n) set_data = 0;
     else if(valid)set_data = {rx_data,set_data[23:8]};
 end
+
 assign s_cmp = set_data[7:0];
 assign f_cmp = set_data[15:8];
 assign m_cmp = set_data[23:16];
