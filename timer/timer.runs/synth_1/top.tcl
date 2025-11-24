@@ -38,7 +38,7 @@ read_verilog -library xil_defaultlib {
   D:/Vidado/projext/BIN_to_BCD/BIN_to_BCD.srcs/sources_1/new/digital.v
   D:/Vidado/projext/digital_display/digital_display.srcs/sources_1/new/display.v
   D:/Vidado/projext/timer/timer.srcs/sources_1/new/naozhong.v
-  D:/Vidado/projext/shake_off/shake_off.srcs/sources_1/new/shake_off.v
+  D:/Vidado/projext/pwm/pwm.srcs/sources_1/new/pwm.v
   D:/Vidado/projext/timer/timer.srcs/sources_1/new/uart_rx.v
   D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v
 }

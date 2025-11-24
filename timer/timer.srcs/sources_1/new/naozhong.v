@@ -4,11 +4,16 @@ module naozhong(
  input clk,
  input rst_n,
  input set_out,
- output reg led
+ output reg led,
+ output aud,
+ output sd
     );
     reg [26:0]clk_cnt;
     reg [2:0]led_cnt;
     reg en;
+    reg [10:0]cnt;
+    
+    pwm inst(clk,rst_n,en,sd,aud);
     always@(posedge clk)begin
     if(~rst_n) begin led = 0;clk_cnt = 0;en = 0;led_cnt = 0;end
     else if(set_out) begin led = 1;clk_cnt = 0;en = 1;led_cnt = 0; end
@@ -18,5 +23,6 @@ module naozhong(
         else clk_cnt = clk_cnt + 1;
         if(led_cnt == 5) en = 0;
         end
-end
+    end
+
 endmodule

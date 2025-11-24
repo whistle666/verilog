@@ -3,12 +3,15 @@ module top(
     input rst_n,
     input rx,
    // input set,//通过uart发送s,f,m，闹钟，响铃
-    input[2:0] load,
-    input add,
+    input set,//闹钟
+    input load,//设置时间
+    //input add,
     input dir,
     output wire led,
     output [6:0]seg,
-    output reg[7:0]an
+    output reg[7:0]an,
+    output aud,
+    output sd
     );
 parameter N=100000;   
 wire [4:0] s;
@@ -22,11 +25,14 @@ wire add_out;
 wire set_out;
 wire [7:0]rx_data;
 reg [23:0]set_data;
+wire [23:0]load_data;
 wire valid;
-//设置的时间
 wire [4:0]s_cmp;
 wire [5:0]f_cmp,m_cmp;
-naozhong inst(clk,rst_n,set_out,led);
+//设置的时间
+//wire [4:0]s_cmp;
+//wire [5:0]f_cmp,m_cmp;
+naozhong inst(clk,rst_n,set_out,led,aud,sd);
 
 ila_0 your_instance_name (
 	.clk(clk), // input wire clk
@@ -36,9 +42,8 @@ ila_0 your_instance_name (
 	.probe3(m_cmp) // input wire [7:0]  probe3
 );
 
-
-dejitter inst1(clk,rst_n,add,add_out);//按键消抖
-clock inst2(clk,rst_n,load,add_out,dir,s,f,m);
+//dejitter inst1(clk,rst_n,add,add_out);//按键消抖
+clock inst2(clk,rst_n,load,load_data,dir,s,f,m);
 uart_rx inst3(clk,rst_n,rx,rx_data,valid);
 
 binary_bcd inst4(m,m_BCD);
@@ -52,9 +57,23 @@ always@(posedge clk)begin
     else if(valid)set_data = {rx_data,set_data[23:8]};
 end
 
-assign s_cmp = set_data[7:0];
-assign f_cmp = set_data[15:8];
-assign m_cmp = set_data[23:16];
+//always@(posedge clk)begin
+//    if(!rst_n) begin load_data <= 0;set_data <= 0;end
+//    else begin
+//        if(load) load_data <= set_data;
+//        if(set) begin
+//            s_cmp <= set_data[7:0];
+//            f_cmp <= set_data[15:8];
+//            m_cmp <= set_data[23:16];
+//        end
+//    end
+//end
+
+assign load_data = load ? set_data : 0;
+assign s_cmp = set ? set_data[7:0] : 0;
+assign f_cmp = set ? set_data[15:8] : 0;
+assign m_cmp = set ? set_data[23:16] :0;
+
 //比较
 assign set_out = (s_cmp == s && f_cmp == f && m_cmp == m);
 
