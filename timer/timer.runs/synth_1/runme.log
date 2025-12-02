@@ -14,56 +14,73 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 1016 
+INFO: Helper process launched with PID 26056 
 WARNING: [Synth 8-2490] overwriting previous definition of module display [D:/Vidado/projext/digital_display/digital_display.srcs/sources_1/new/display.v:23]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 455.266 ; gain = 107.129
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 455.102 ; gain = 107.621
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'top' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'top' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:108]
 	Parameter N bound to: 100000 - type: integer 
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:192]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [D:/Vidado/projext/timer/timer.runs/synth_1/.Xil/Vivado-23804-DESKTOP-9COANIV/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (1#1) [D:/Vidado/projext/timer/timer.runs/synth_1/.Xil/Vivado-23804-DESKTOP-9COANIV/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fifo_read' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo_read.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_read' (2#1) [D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo_read.v:12]
 INFO: [Synth 8-6157] synthesizing module 'naozhong' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/naozhong.v:3]
 INFO: [Synth 8-6157] synthesizing module 'pwm' [D:/Vidado/projext/pwm/pwm.srcs/sources_1/new/pwm.v:2]
-INFO: [Synth 8-6155] done synthesizing module 'pwm' (1#1) [D:/Vidado/projext/pwm/pwm.srcs/sources_1/new/pwm.v:2]
-INFO: [Synth 8-6155] done synthesizing module 'naozhong' (2#1) [D:/Vidado/projext/timer/timer.srcs/sources_1/new/naozhong.v:3]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:37]
-INFO: [Synth 8-6157] synthesizing module 'ila_0' [D:/Vidado/projext/timer/timer.runs/synth_1/.Xil/Vivado-18216-DESKTOP-9COANIV/realtime/ila_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ila_0' (3#1) [D:/Vidado/projext/timer/timer.runs/synth_1/.Xil/Vivado-18216-DESKTOP-9COANIV/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'pwm' (3#1) [D:/Vidado/projext/pwm/pwm.srcs/sources_1/new/pwm.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'naozhong' (4#1) [D:/Vidado/projext/timer/timer.srcs/sources_1/new/naozhong.v:3]
+INFO: [Synth 8-6157] synthesizing module 'async_fifo' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo.v:63]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter FIFO_DEPTH bound to: 128 - type: integer 
+	Parameter ADDR_WIDTH bound to: 7 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element rd_ptr_bin_sync_reg was removed.  [D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo.v:163]
+WARNING: [Synth 8-6014] Unused sequential element wr_ptr_bin_sync_reg was removed.  [D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo.v:211]
+WARNING: [Synth 8-5788] Register mem_reg in module async_fifo is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-4767] Trying to implement RAM 'mem_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "mem_reg" dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'async_fifo' (5#1) [D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo.v:63]
 INFO: [Synth 8-6157] synthesizing module 'clock' [E:/vscode workspace/clock.v:1]
 INFO: [Synth 8-6157] synthesizing module 'counter' [E:/vscode workspace/counter.v:1]
 	Parameter CNT_MAX bound to: 60 - type: integer 
 	Parameter BIT bound to: 0 - type: integer 
 	Parameter CNT_FLAG bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'counter' (4#1) [E:/vscode workspace/counter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'counter' (6#1) [E:/vscode workspace/counter.v:1]
 INFO: [Synth 8-6157] synthesizing module 'counter__parameterized0' [E:/vscode workspace/counter.v:1]
 	Parameter CNT_MAX bound to: 60 - type: integer 
 	Parameter BIT bound to: 1 - type: integer 
 	Parameter CNT_FLAG bound to: 0 - type: integer 
 WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [E:/vscode workspace/counter.v:20]
-INFO: [Synth 8-6155] done synthesizing module 'counter__parameterized0' (4#1) [E:/vscode workspace/counter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'counter__parameterized0' (6#1) [E:/vscode workspace/counter.v:1]
 INFO: [Synth 8-6157] synthesizing module 'counter__parameterized1' [E:/vscode workspace/counter.v:1]
 	Parameter CNT_MAX bound to: 24 - type: integer 
 	Parameter BIT bound to: 2 - type: integer 
 	Parameter CNT_FLAG bound to: 0 - type: integer 
 WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [E:/vscode workspace/counter.v:20]
-INFO: [Synth 8-6155] done synthesizing module 'counter__parameterized1' (4#1) [E:/vscode workspace/counter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'counter__parameterized1' (6#1) [E:/vscode workspace/counter.v:1]
 WARNING: [Synth 8-2900] ignoring illegal expression in output port connection [E:/vscode workspace/clock.v:61]
 WARNING: [Synth 8-689] width (5) of port connection 'count' does not match port width (6) of module 'counter__parameterized1' [E:/vscode workspace/clock.v:62]
-INFO: [Synth 8-6155] done synthesizing module 'clock' (5#1) [E:/vscode workspace/clock.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'clock' (7#1) [E:/vscode workspace/clock.v:1]
 INFO: [Synth 8-6157] synthesizing module 'uart_rx' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/uart_rx.v:1]
 	Parameter UART_BPS bound to: 115200 - type: integer 
 	Parameter CLK_FREQ bound to: 100000000 - type: integer 
 	Parameter BAUD_CNT_MAX bound to: 868 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (6#1) [D:/Vidado/projext/timer/timer.srcs/sources_1/new/uart_rx.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (8#1) [D:/Vidado/projext/timer/timer.srcs/sources_1/new/uart_rx.v:1]
 INFO: [Synth 8-6157] synthesizing module 'binary_bcd' [D:/Vidado/projext/BIN_to_BCD/BIN_to_BCD.srcs/sources_1/new/digital.v:26]
-INFO: [Synth 8-6155] done synthesizing module 'binary_bcd' (7#1) [D:/Vidado/projext/BIN_to_BCD/BIN_to_BCD.srcs/sources_1/new/digital.v:26]
-WARNING: [Synth 8-689] width (8) of port connection 'bcd_out' does not match port width (10) of module 'binary_bcd' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:49]
-WARNING: [Synth 8-689] width (8) of port connection 'bcd_out' does not match port width (10) of module 'binary_bcd' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:50]
-WARNING: [Synth 8-689] width (8) of port connection 'bcd_out' does not match port width (10) of module 'binary_bcd' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:51]
+INFO: [Synth 8-6155] done synthesizing module 'binary_bcd' (9#1) [D:/Vidado/projext/BIN_to_BCD/BIN_to_BCD.srcs/sources_1/new/digital.v:26]
+WARNING: [Synth 8-689] width (8) of port connection 'bcd_out' does not match port width (10) of module 'binary_bcd' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:220]
+WARNING: [Synth 8-689] width (8) of port connection 'bcd_out' does not match port width (10) of module 'binary_bcd' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:221]
+WARNING: [Synth 8-689] width (8) of port connection 'bcd_out' does not match port width (10) of module 'binary_bcd' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:222]
 INFO: [Synth 8-6157] synthesizing module 'display' [D:/Vidado/projext/digital_display/digital_display.srcs/sources_1/new/display.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'display' (8#1) [D:/Vidado/projext/digital_display/digital_display.srcs/sources_1/new/display.v:23]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'your_instance_name'. This will prevent further optimization [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:37]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'inst'. This will prevent further optimization [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:35]
-INFO: [Synth 8-6155] done synthesizing module 'top' (9#1) [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'display' (10#1) [D:/Vidado/projext/digital_display/digital_display.srcs/sources_1/new/display.v:23]
+WARNING: [Synth 8-689] width (8) of port connection 'bcd_out' does not match port width (10) of module 'binary_bcd' [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:225]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'your_instance_name'. This will prevent further optimization [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:192]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'inst'. This will prevent further optimization [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:198]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'inst_fifo'. This will prevent further optimization [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:214]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'inst8'. This will prevent further optimization [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:225]
+INFO: [Synth 8-6155] done synthesizing module 'top' (11#1) [D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v:108]
 WARNING: [Synth 8-3331] design counter__parameterized1 has unconnected port load_data[7]
 WARNING: [Synth 8-3331] design counter__parameterized1 has unconnected port load_data[6]
 WARNING: [Synth 8-3331] design counter__parameterized0 has unconnected port load_data[7]
@@ -72,7 +89,7 @@ WARNING: [Synth 8-3331] design counter has unconnected port cin
 WARNING: [Synth 8-3331] design counter has unconnected port load_data[7]
 WARNING: [Synth 8-3331] design counter has unconnected port load_data[6]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 491.773 ; gain = 143.637
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 501.766 ; gain = 154.285
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -85,10 +102,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 491.773 ; gain = 143.637
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 501.766 ; gain = 154.285
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 491.773 ; gain = 143.637
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 501.766 ; gain = 154.285
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -101,32 +118,39 @@ Parsing XDC File [D:/Vidado/projext/timer/timer.srcs/constrs_1/new/xdc.xdc]
 Finished Parsing XDC File [D:/Vidado/projext/timer/timer.srcs/constrs_1/new/xdc.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Vidado/projext/timer/timer.srcs/constrs_1/new/xdc.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 848.953 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 860.113 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 848.977 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 860.113 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 848.977 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 848.977 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 860.113 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 860.113 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 848.977 ; gain = 500.840
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 860.113 ; gain = 512.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 848.977 ; gain = 500.840
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 860.113 ; gain = 512.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for your_instance_name. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 848.977 ; gain = 500.840
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 860.113 ; gain = 512.633
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "valid" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/Vidado/projext/pwm/pwm.srcs/sources_1/new/pwm.v:27]
 INFO: [Synth 8-5546] ROM "duty" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "up_down" won't be mapped to RAM because it is too sparse
@@ -137,9 +161,10 @@ INFO: [Synth 8-5545] ROM "cnt_r" won't be mapped to RAM because address size (27
 INFO: [Synth 8-5546] ROM "carry" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "carry" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "bit_flag" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "clk_1hz" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "an" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 848.977 ; gain = 500.840
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 860.113 ; gain = 512.633
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -152,38 +177,48 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     27 Bit       Adders := 2     
+	   2 Input     27 Bit       Adders := 3     
 	   2 Input     21 Bit       Adders := 1     
 	   2 Input     13 Bit       Adders := 1     
 	   2 Input      9 Bit       Adders := 2     
+	   3 Input      8 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 5     
 	   2 Input      6 Bit       Adders := 4     
 	   3 Input      6 Bit       Adders := 2     
-	   2 Input      4 Bit       Adders := 22    
-	   2 Input      3 Bit       Adders := 11    
+	   2 Input      4 Bit       Adders := 29    
+	   2 Input      3 Bit       Adders := 14    
++---XORs : 
+	   2 Input      8 Bit         XORs := 2     
 +---Registers : 
-	               27 Bit    Registers := 2     
-	               24 Bit    Registers := 1     
+	               27 Bit    Registers := 3     
+	               24 Bit    Registers := 2     
 	               21 Bit    Registers := 1     
 	               13 Bit    Registers := 1     
 	                9 Bit    Registers := 2     
-	                8 Bit    Registers := 3     
+	                8 Bit    Registers := 140   
 	                6 Bit    Registers := 3     
-	                4 Bit    Registers := 2     
+	                4 Bit    Registers := 3     
 	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 15    
+	                1 Bit    Registers := 17    
 +---Muxes : 
 	   3 Input     27 Bit        Muxes := 1     
-	   2 Input     27 Bit        Muxes := 1     
-	   2 Input     24 Bit        Muxes := 1     
+	   2 Input     27 Bit        Muxes := 2     
+	   5 Input     24 Bit        Muxes := 1     
+	  14 Input     24 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 2     
 	   2 Input     21 Bit        Muxes := 1     
 	   2 Input     13 Bit        Muxes := 2     
 	   2 Input      9 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 14    
 	   2 Input      5 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 28    
-	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 38    
+	   2 Input      3 Bit        Muxes := 2     
+	  14 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
 	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 17    
+	   2 Input      1 Bit        Muxes := 147   
+	  14 Input      1 Bit        Muxes := 1     
+	  15 Input      1 Bit        Muxes := 1     
 	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -195,19 +230,43 @@ Hierarchical RTL Component report
 Module top 
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input     27 Bit       Adders := 1     
 	   2 Input     21 Bit       Adders := 1     
 +---Registers : 
+	               27 Bit    Registers := 1     
 	               24 Bit    Registers := 1     
 	               21 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
 +---Muxes : 
+	   2 Input     27 Bit        Muxes := 1     
 	   2 Input     24 Bit        Muxes := 1     
 	   2 Input     21 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 2     
 	   2 Input      5 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 6     
+	   2 Input      4 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 2     
+Module fifo_read 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      8 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   5 Input     24 Bit        Muxes := 1     
+	  14 Input     24 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	  14 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 1     
+	  14 Input      1 Bit        Muxes := 1     
+	  15 Input      1 Bit        Muxes := 1     
 Module pwm 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -232,6 +291,16 @@ Detailed RTL Component Info :
 	   3 Input     27 Bit        Muxes := 1     
 	   3 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 3     
+Module async_fifo 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 4     
++---XORs : 
+	   2 Input      8 Bit         XORs := 2     
++---Registers : 
+	                8 Bit    Registers := 137   
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 128   
 Module counter 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -305,16 +374,98 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-5546] ROM "inst/duty" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "inst/up_down" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "inst/up_down" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5545] ROM "led" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
-INFO: [Synth 8-5546] ROM "inst2/inst1/carry" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "inst2/inst1/carry" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "inst3/bit_flag" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "an" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5545] ROM "inst1/led" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clk_1hz" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
+WARNING: [Synth 8-3917] design top has port sd driven by constant 1
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 848.977 ; gain = 500.840
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 860.113 ; gain = 512.633
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -326,13 +477,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 848.977 ; gain = 500.840
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 860.113 ; gain = 512.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 885.383 ; gain = 537.246
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 863.723 ; gain = 516.242
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -343,8 +494,10 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'inst_fifo/wr_ptr_gray_reg[7]' (FDCE) to 'inst_fifo/wr_ptr_bin_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst_fifo/rd_ptr_bin_reg[7]' (FDCE) to 'inst_fifo/rd_ptr_gray_reg[7]'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 885.383 ; gain = 537.246
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 875.398 ; gain = 527.918
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -368,7 +521,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 885.383 ; gain = 537.246
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.398 ; gain = 527.918
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -381,7 +534,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 885.383 ; gain = 537.246
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.398 ; gain = 527.918
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -393,25 +546,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 885.383 ; gain = 537.246
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.398 ; gain = 527.918
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 885.383 ; gain = 537.246
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.398 ; gain = 527.918
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 885.383 ; gain = 537.246
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.398 ; gain = 527.918
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 885.383 ; gain = 537.246
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.398 ; gain = 527.918
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -430,59 +583,64 @@ Report Cell Usage:
 +------+-------+------+
 |1     |ila_0  |     1|
 |2     |BUFG   |     1|
-|3     |CARRY4 |    26|
-|4     |LUT1   |     7|
-|5     |LUT2   |    36|
-|6     |LUT3   |    30|
-|7     |LUT4   |    75|
-|8     |LUT5   |    63|
-|9     |LUT6   |    74|
-|10    |FDCE   |    36|
-|11    |FDPE   |     3|
-|12    |FDRE   |   138|
-|13    |FDSE   |    12|
-|14    |IBUF   |     6|
-|15    |OBUF   |    18|
+|3     |CARRY4 |    41|
+|4     |LUT1   |    21|
+|5     |LUT2   |   169|
+|6     |LUT3   |    66|
+|7     |LUT4   |   100|
+|8     |LUT5   |    82|
+|9     |LUT6   |   496|
+|10    |MUXF7  |   136|
+|11    |MUXF8  |    64|
+|12    |FDCE   |   112|
+|13    |FDPE   |     3|
+|14    |FDRE   |  1225|
+|15    |FDSE   |    12|
+|16    |IBUF   |     6|
+|17    |OBUF   |    19|
 +------+-------+------+
 
 Report Instance Areas: 
-+------+----------+------------------------+------+
-|      |Instance  |Module                  |Cells |
-+------+----------+------------------------+------+
-|1     |top       |                        |   525|
-|2     |  inst    |naozhong                |   148|
-|3     |    inst  |pwm                     |    65|
-|4     |  inst2   |clock                   |   175|
-|5     |    inst1 |counter                 |   109|
-|6     |    inst2 |counter__parameterized0 |    37|
-|7     |    inst3 |counter__parameterized1 |    29|
-|8     |  inst3   |uart_rx                 |    68|
-|9     |  inst7   |display                 |     6|
-+------+----------+------------------------+------+
++------+------------+------------------------+------+
+|      |Instance    |Module                  |Cells |
++------+------------+------------------------+------+
+|1     |top         |                        |  2553|
+|2     |  inst      |fifo_read               |   149|
+|3     |  inst_fifo |async_fifo              |  1795|
+|4     |  inst8     |binary_bcd              |    12|
+|5     |  inst1     |naozhong                |   149|
+|6     |    inst    |pwm                     |    62|
+|7     |  inst2     |clock                   |   181|
+|8     |    inst1   |counter                 |   114|
+|9     |    inst2   |counter__parameterized0 |    36|
+|10    |    inst3   |counter__parameterized1 |    31|
+|11    |  inst3     |uart_rx                 |    70|
+|12    |  inst7     |display                 |     6|
++------+------------+------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 885.383 ; gain = 537.246
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.398 ; gain = 527.918
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 885.383 ; gain = 180.043
-Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 885.383 ; gain = 537.246
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 875.398 ; gain = 169.570
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.398 ; gain = 527.918
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 26 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 241 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 885.383 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 875.398 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-55 Infos, 16 Warnings, 0 Critical Warnings and 0 Errors encountered.
+152 Infos, 22 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 885.383 ; gain = 538.980
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 875.398 ; gain = 529.605
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 885.383 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 875.398 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/Vidado/projext/timer/timer.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Nov 11 11:24:50 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Dec  2 14:47:01 2025...

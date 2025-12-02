@@ -1,0 +1,9 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+D:/Vidado/projext/timer/timer.sim/sim_1/impl/func/xsim/simu_func_impl.v,1764584846,verilog,,D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo.v,,clock;counter;counter__parameterized0;counter__parameterized1;display;glbl;naozhong;pwm;top,,,,,,,,
+D:/Vidado/projext/timer/timer.srcs/sim_1/new/simu.v,1764405814,verilog,,,,simu,,,,,,,,
+,,,,D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo_read.v,,sync_fifo,,,,,,,,
+D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo_read.v,1764401051,verilog,,D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo_test.v,,fifo_read,,,,,,,,
+D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo_test.v,1764404486,verilog,,D:/Vidado/projext/timer/timer.srcs/sim_1/new/simu.v,,fifo_test,,,,,,,,

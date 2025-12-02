@@ -1,0 +1,18 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Vidado/projext/timer/timer.sim/sim_1/synth/timing/xsim/simu_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock
+INFO: [VRFC 10-311] analyzing module counter
+INFO: [VRFC 10-311] analyzing module counter__parameterized0
+INFO: [VRFC 10-311] analyzing module counter__parameterized1
+INFO: [VRFC 10-311] analyzing module display
+INFO: [VRFC 10-311] analyzing module naozhong
+INFO: [VRFC 10-311] analyzing module pwm
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sync_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo_read.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_read
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_test
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Vidado/projext/timer/timer.srcs/sim_1/new/simu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simu
