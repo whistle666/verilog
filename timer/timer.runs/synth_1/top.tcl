@@ -17,25 +17,24 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param tcl.collectionResultDisplayLimit 0
 set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/Vidado/projext/timer/timer.cache/wt [current_project]
 set_property parent.project_path D:/Vidado/projext/timer/timer.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo d:/Vidado/projext/timer/timer.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
+  D:/Vidado/projext/timer/timer.srcs/sources_1/new/btn_filter.v
   {E:/vscode workspace/clock.v}
   {E:/vscode workspace/counter.v}
   D:/Vidado/projext/BIN_to_BCD/BIN_to_BCD.srcs/sources_1/new/digital.v
+  D:/Vidado/projext/timer/timer.srcs/sources_1/new/digital_display.v
   D:/Vidado/projext/digital_display/digital_display.srcs/sources_1/new/display.v
   D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo.v
   D:/Vidado/projext/timer/timer.srcs/sources_1/new/fifo_read.v
@@ -44,12 +43,6 @@ read_verilog -library xil_defaultlib {
   D:/Vidado/projext/timer/timer.srcs/sources_1/new/uart_rx.v
   D:/Vidado/projext/timer/timer.srcs/sources_1/new/top.v
 }
-read_ip -quiet D:/Vidado/projext/timer/timer.srcs/sources_1/ip/ila_0/ila_0.xci
-set_property used_in_synthesis false [get_files -all d:/Vidado/projext/timer/timer.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all d:/Vidado/projext/timer/timer.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all d:/Vidado/projext/timer/timer.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
-set_property used_in_implementation false [get_files -all d:/Vidado/projext/timer/timer.srcs/sources_1/ip/ila_0/ila_0_ooc.xdc]
-
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be

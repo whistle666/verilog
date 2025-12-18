@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Dec  2 14:48:23 2025
+| Date         : Mon Dec 15 10:27:16 2025
 | Host         : DESKTOP-9COANIV running 64-bit major release  (build 9200)
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
@@ -23,451 +23,384 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 108
-+-----------+----------+-------------------------------------------------+------------+
-| Rule      | Severity | Description                                     | Violations |
-+-----------+----------+-------------------------------------------------+------------+
-| LUTAR-1   | Warning  | LUT drives async reset alert                    | 4          |
-| PDRC-190  | Warning  | Suboptimally placed synchronized register chain | 10         |
-| TIMING-17 | Warning  | Non-clocked sequential cell                     | 72         |
-| TIMING-18 | Warning  | Missing input or output delay                   | 22         |
-+-----------+----------+-------------------------------------------------+------------+
+             Violations found: 95
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| TIMING-17 | Warning  | Non-clocked sequential cell   | 73         |
+| TIMING-18 | Warning  | Missing input or output delay | 22         |
++-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
-LUTAR-1#1 Warning
-LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#2 Warning
-LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#3 Warning
-LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#4 Warning
-LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-PDRC-190#1 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[0] in site SLICE_X56Y55 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#2 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[1] in site SLICE_X57Y55 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#3 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[2] in site SLICE_X57Y57 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#4 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[3] in site SLICE_X58Y55 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[3] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#5 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[0] in site SLICE_X54Y54 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#6 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[1] in site SLICE_X55Y53 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#7 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[2] in site SLICE_X54Y52 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#8 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[0] in site SLICE_X53Y52 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#9 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[1] in site SLICE_X56Y51 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#10 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[2] in site SLICE_X57Y51 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
-Related violations: <none>
-
 TIMING-17#1 Warning
 Non-clocked sequential cell  
-The clock pin inst/cs_reg[0]/C is not reached by a timing clock
+The clock pin inst1/cs_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#2 Warning
 Non-clocked sequential cell  
-The clock pin inst/cs_reg[1]/C is not reached by a timing clock
+The clock pin inst1/cs_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#3 Warning
 Non-clocked sequential cell  
-The clock pin inst/cs_reg[2]/C is not reached by a timing clock
+The clock pin inst1/cs_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#4 Warning
 Non-clocked sequential cell  
-The clock pin inst/cs_reg[3]/C is not reached by a timing clock
+The clock pin inst1/cs_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#5 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[0]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#6 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[10]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[10]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#7 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[11]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[11]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#8 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[12]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[12]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#9 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[13]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[13]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#10 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[14]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[14]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#11 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[15]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[15]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#12 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[16]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[16]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#13 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[17]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[17]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#14 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[18]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[18]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#15 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[19]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[19]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#16 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[1]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#17 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[20]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[20]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#18 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[21]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[21]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#19 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[22]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[22]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#20 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[23]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[23]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#21 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[2]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#22 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[3]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#23 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[4]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#24 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[5]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#25 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[6]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#26 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[7]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#27 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[8]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#28 Warning
 Non-clocked sequential cell  
-The clock pin inst/data_r_reg[9]/C is not reached by a timing clock
+The clock pin inst1/data_r_reg[9]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#29 Warning
 Non-clocked sequential cell  
-The clock pin inst/valid_reg/C is not reached by a timing clock
+The clock pin inst1/valid_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#30 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/dout_reg[0]/C is not reached by a timing clock
+The clock pin inst3/dout_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#31 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/dout_reg[1]/C is not reached by a timing clock
+The clock pin inst3/dout_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#32 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/dout_reg[2]/C is not reached by a timing clock
+The clock pin inst3/dout_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#33 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/dout_reg[3]/C is not reached by a timing clock
+The clock pin inst3/dout_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#34 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/dout_reg[4]/C is not reached by a timing clock
+The clock pin inst3/dout_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#35 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/dout_reg[5]/C is not reached by a timing clock
+The clock pin inst3/dout_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#36 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/dout_reg[6]/C is not reached by a timing clock
+The clock pin inst3/dout_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#37 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/dout_reg[7]/C is not reached by a timing clock
+The clock pin inst3/dout_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#38 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[0]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#39 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[0]_rep/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[0]_rep/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#40 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[0]_rep__0/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[0]_rep__0/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#41 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[1]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[0]_rep__1/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#42 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[1]_rep/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#43 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[1]_rep__0/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[1]_rep/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#44 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[2]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[1]_rep__0/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#45 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[3]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#46 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[4]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#47 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[5]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#48 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_bin_reg[6]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#49 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_gray_reg[0]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_bin_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#50 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_gray_reg[1]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_gray_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#51 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_gray_reg[2]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_gray_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#52 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_gray_reg[3]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_gray_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#53 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_gray_reg[4]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_gray_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#54 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_gray_reg[5]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_gray_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#55 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_gray_reg[6]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_gray_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#56 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/rd_ptr_gray_reg[7]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_gray_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#57 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync1_reg[0]/C is not reached by a timing clock
+The clock pin inst3/rd_ptr_gray_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#58 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync1_reg[1]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync1_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#59 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync1_reg[2]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync1_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#60 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync1_reg[3]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync1_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#61 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync1_reg[4]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync1_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#62 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync1_reg[5]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync1_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#63 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync1_reg[6]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync1_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#64 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync1_reg[7]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync1_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#65 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync2_reg[0]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync1_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#66 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync2_reg[1]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync2_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#67 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync2_reg[2]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync2_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#68 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync2_reg[3]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync2_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#69 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync2_reg[4]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync2_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#70 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync2_reg[5]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync2_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#71 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync2_reg[6]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync2_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#72 Warning
 Non-clocked sequential cell  
-The clock pin inst_fifo/wr_ptr_gray_sync2_reg[7]/C is not reached by a timing clock
+The clock pin inst3/wr_ptr_gray_sync2_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#73 Warning
+Non-clocked sequential cell  
+The clock pin inst3/wr_ptr_gray_sync2_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-18#1 Warning
 Missing input or output delay  
-An input delay is missing on dir relative to clock(s) sys_clk_pin
+An input delay is missing on btn relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#2 Warning
@@ -532,12 +465,12 @@ Related violations: <none>
 
 TIMING-18#14 Warning
 Missing input or output delay  
-An output delay is missing on aud relative to clock(s) sys_clk_pin
+An output delay is missing on clock_aud relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#15 Warning
 Missing input or output delay  
-An output delay is missing on led relative to clock(s) sys_clk_pin
+An output delay is missing on clock_led relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#16 Warning

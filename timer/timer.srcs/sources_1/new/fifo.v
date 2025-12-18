@@ -1,29 +1,29 @@
 module sync_fifo #(
-    parameter DATA_WIDTH = 8,  // Êý¾ÝÎ»¿í
-    parameter FIFO_DEPTH = 1024  // FIFO Éî¶È
+    parameter DATA_WIDTH = 8,  // ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+    parameter FIFO_DEPTH = 1024  // FIFO ï¿½ï¿½ï¿?
 )(
-    input  wire                     clk,      // Ê±ÖÓ
-    input  wire                     rst_n,    // Òì²½¸´Î»£¨µÍÓÐÐ§£©
-    input  wire                     wr_en,    // Ð´Ê¹ÄÜ
-    input  wire [DATA_WIDTH-1:0]    wr_data,  // Ð´Êý¾Ý
-    input  wire                     rd_en,    // ¶ÁÊ¹ÄÜ
-    output reg  [DATA_WIDTH-1:0]    rd_data,  // ¶ÁÊý¾Ý
-    output wire                     full,     // FIFO Âú±êÖ¾
-    output wire                     empty,     // FIFO ¿Õ±êÖ¾
+    input  wire                     clk,      // Ê±ï¿½ï¿½
+    input  wire                     rst_n,    // ï¿½ì²½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
+    input  wire                     wr_en,    // Ð´Ê¹ï¿½ï¿½
+    input  wire [DATA_WIDTH-1:0]    wr_data,  // Ð´ï¿½ï¿½ï¿½ï¿½
+    input  wire                     rd_en,    // ï¿½ï¿½Ê¹ï¿½ï¿½
+    output reg  [DATA_WIDTH-1:0]    rd_data,  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    output wire                     full,     // FIFO ï¿½ï¿½ï¿½ï¿½Ö¾
+    output wire                     empty,     // FIFO ï¿½Õ±ï¿½Ö¾
     output wire [9:0]count
 );
 
-    // ÄÚ²¿ÐÅºÅ¶¨Òå
-    reg [DATA_WIDTH-1:0] fifo_mem [0:FIFO_DEPTH-1];  // FIFO ´æ´¢ÕóÁÐ
-    reg [$clog2(FIFO_DEPTH)-1:0] wr_ptr;             // Ð´Ö¸Õë
-    reg [$clog2(FIFO_DEPTH)-1:0] rd_ptr;             // ¶ÁÖ¸Õë
-    reg [$clog2(FIFO_DEPTH):0]   count_r;              // Êý¾Ý¼ÆÊýÆ÷
+    // ï¿½Ú²ï¿½ï¿½ÅºÅ¶ï¿½ï¿½ï¿½
+    reg [DATA_WIDTH-1:0] fifo_mem [0:FIFO_DEPTH-1];  // FIFO ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½
+    reg [$clog2(FIFO_DEPTH)-1:0] wr_ptr;             // Ð´Ö¸ï¿½ï¿½
+    reg [$clog2(FIFO_DEPTH)-1:0] rd_ptr;             // ï¿½ï¿½Ö¸ï¿½ï¿½
+    reg [$clog2(FIFO_DEPTH):0]   count_r;              // ï¿½ï¿½ï¿½Ý¼ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    // ¿ÕÂú±êÖ¾Éú³É
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½
     assign full  = (count == FIFO_DEPTH);
     assign empty = (count == 0);
     assign count = count_r;
-    // Ð´²Ù×÷
+    // Ð´ï¿½ï¿½ï¿½ï¿½
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             wr_ptr <= 0;
@@ -33,7 +33,7 @@ module sync_fifo #(
         end
     end
 
-    // ¶Á²Ù×÷
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             rd_ptr <= 0;
@@ -44,16 +44,16 @@ module sync_fifo #(
         end
     end
 
-    // Êý¾Ý¼ÆÊýÆ÷¸üÐÂ
+    // ï¿½ï¿½ï¿½Ý¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             count_r <= 0;
         end else begin
             case ({wr_en, rd_en})
-                2'b00: count_r <= count_r;                    // ÎÞ²Ù×÷
-                2'b01: count_r <= (empty) ? 0 : count_r - 1; // Ö»¶Á
+                2'b00: count_r <= count_r;                    // ï¿½Þ²ï¿½ï¿½ï¿½
+                2'b01: count_r <= (empty) ? 0 : count_r - 1; // Ö»ï¿½ï¿½
                 2'b10: count_r <= (full) ? count_r : count_r + 1; // Ö»Ð´
-                2'b11: count_r <= count_r;                    // Í¬Ê±¶ÁÐ´£¬¼ÆÊý²»±ä
+                2'b11: count_r <= count_r;                    // Í¬Ê±ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             endcase
         end
     end
@@ -61,57 +61,57 @@ module sync_fifo #(
 endmodule
 
 module async_fifo #(
-    parameter DATA_WIDTH = 8,   // Êý¾ÝÎ»¿í
-    parameter FIFO_DEPTH = 128   // FIFO Éî¶È£¨±ØÐëÊÇ 2 µÄÃÝ£©
+    parameter DATA_WIDTH = 8,   
+    parameter FIFO_DEPTH = 128   
 )(
-    // Ð´¶Ë¿Ú£¨Ð´Ê±ÖÓÓò£©
-    input  wire                     wr_clk,    // Ð´Ê±ÖÓ
-    input  wire                     wr_rst_n,  // Ð´¸´Î»
-    input  wire                     wr_en,     // Ð´Ê¹ÄÜ
-    input  wire [DATA_WIDTH-1:0]    din,       // Ð´Êý¾Ý
     
-    // ¶Á¶Ë¿Ú£¨¶ÁÊ±ÖÓÓò£©
-    input  wire                     rd_clk,    // ¶ÁÊ±ÖÓ
-    input  wire                     rd_rst_n,  // ¶Á¸´Î»
-    input  wire                     rd_en,     // ¶ÁÊ¹ÄÜ
-    output reg  [DATA_WIDTH-1:0]    dout,      // ¶ÁÊý¾Ý
+    input  wire                     wr_clk,   
+    input  wire                     wr_rst_n,  
+    input  wire                     wr_en,    
+    input  wire [DATA_WIDTH-1:0]    din,       
     
-    // ×´Ì¬±êÖ¾
-    output wire                     full,      // FIFO Âú£¨Ð´Ê±ÖÓÓò£©
-    output wire                     empty      // FIFO ¿Õ£¨¶ÁÊ±ÖÓÓò£©
+   
+    input  wire                     rd_clk,   
+    input  wire                     rd_rst_n, 
+    input  wire                     rd_en,     
+    output reg  [DATA_WIDTH-1:0]    dout,      
+    
+   
+    output wire                     full,      
+    output wire                     empty      
 );
 
-    // ²ÎÊý¼ÆËã
+   
     localparam ADDR_WIDTH = $clog2(FIFO_DEPTH);
     
-    // FIFO ´æ´¢Æ÷
+  
     reg [DATA_WIDTH-1:0] mem [0:FIFO_DEPTH-1];
     
-    // Ð´Ö¸Õë£¨¶þ½øÖÆºÍ¸ñÀ×Âë£©
-    reg [ADDR_WIDTH:0] wr_ptr_bin;  // ¶þ½øÖÆÐ´Ö¸Õë£¨¶à1Î»ÓÃÓÚÂúÅÐ¶Ï£©
-    reg [ADDR_WIDTH:0] wr_ptr_gray; // ¸ñÀ×ÂëÐ´Ö¸Õë
+  
+    reg [ADDR_WIDTH:0] wr_ptr_bin;  
+    reg [ADDR_WIDTH:0] wr_ptr_gray; 
     wire [ADDR_WIDTH:0] wr_ptr_gray_next;
     
-    // ¶ÁÖ¸Õë£¨¶þ½øÖÆºÍ¸ñÀ×Âë£©
-    reg [ADDR_WIDTH:0] rd_ptr_bin;  // ¶þ½øÖÆ¶ÁÖ¸Õë£¨¶à1Î»ÓÃÓÚÂúÅÐ¶Ï£©
-    reg [ADDR_WIDTH:0] rd_ptr_gray; // ¸ñÀ×Âë¶ÁÖ¸Õë
+   
+    reg [ADDR_WIDTH:0] rd_ptr_bin;  // ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½Ö¸ï¿½ë£¨ï¿½ï¿½1Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï£ï¿½
+    reg [ADDR_WIDTH:0] rd_ptr_gray; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿?
     wire [ADDR_WIDTH:0] rd_ptr_gray_next;
     
-    // Í¬²½ºóµÄÖ¸Õë
+    // Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿?
     reg [ADDR_WIDTH:0] wr_ptr_gray_sync1, wr_ptr_gray_sync2;
     reg [ADDR_WIDTH:0] rd_ptr_gray_sync1, rd_ptr_gray_sync2;
     
-    // Í¬²½ºóµÄ¶þ½øÖÆÖ¸Õë£¨ÓÃÓÚ±È½Ï£©
+    // Í¬ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë£¨ï¿½ï¿½ï¿½Ú±È½Ï£ï¿?
     reg [ADDR_WIDTH:0] wr_ptr_bin_sync;
     reg [ADDR_WIDTH:0] rd_ptr_bin_sync;
     
-    // ¶þ½øÖÆ×ª¸ñÀ×Âëº¯Êý
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ëº¯ï¿½ï¿½
     function [ADDR_WIDTH:0] bin2gray;
         input [ADDR_WIDTH:0] bin;
         bin2gray = bin ^ (bin >> 1);
     endfunction
     
-    // ¸ñÀ×Âë×ª¶þ½øÖÆº¯Êý
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Æºï¿½ï¿½ï¿½
     function [ADDR_WIDTH:0] gray2bin;
         input [ADDR_WIDTH:0] gray;
         integer i;
@@ -122,30 +122,30 @@ module async_fifo #(
         end
     endfunction
     
-    // ===================== Ð´Ê±ÖÓÓòÂß¼­ =====================
+    // ===================== Ð´Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ =====================
     
-    // Ð´Ö¸Õë¸üÐÂ
+    // Ð´Ö¸ï¿½ï¿½ï¿½ï¿½ï¿?
     always @(posedge wr_clk or negedge wr_rst_n) begin
         if (!wr_rst_n) begin
             wr_ptr_bin <= 0;
             wr_ptr_gray <= 0;
         end
         else if (wr_en && !full) begin
-            // Ð´ÈëÊý¾Ýµ½´æ´¢Æ÷
+            // Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½æ´¢ï¿½ï¿½
             mem[wr_ptr_bin[ADDR_WIDTH-1:0]] <= din;
             
-            // ¸üÐÂ¶þ½øÖÆÐ´Ö¸Õë
+            // ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½ï¿½ï¿½Ð´Ö¸ï¿½ï¿½
             wr_ptr_bin <= wr_ptr_bin + 1;
             
-            // ¸üÐÂ¸ñÀ×ÂëÐ´Ö¸Õë
+            // ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½Ð´Ö¸ï¿½ï¿½
             wr_ptr_gray <= wr_ptr_gray_next;
         end
     end
     
-    // ¼ÆËãÏÂÒ»¸ö¸ñÀ×ÂëÐ´Ö¸Õë
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´Ö¸ï¿½ï¿½
     assign wr_ptr_gray_next = bin2gray(wr_ptr_bin + 1);
     
-    // Í¬²½¶ÁÖ¸Õëµ½Ð´Ê±ÖÓÓò£¨Á½¼¶Í¬²½Æ÷£©
+    // Í¬ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ëµ½Ð´Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ è¯»æŒ‡é’ˆåŒæ­¥åˆ°å†™æ—¶é’ŸåŸŸ(gray)
     always @(posedge wr_clk or negedge wr_rst_n) begin
         if (!wr_rst_n) begin
             rd_ptr_gray_sync1 <= 0;
@@ -157,21 +157,21 @@ module async_fifo #(
         end
     end
     
-    // ½«Í¬²½ºóµÄ¸ñÀ×ÂëÖ¸Õë×ª»»Îª¶þ½øÖÆ
+    // ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
     always @(posedge wr_clk or negedge wr_rst_n) begin
         if (!wr_rst_n)
             rd_ptr_bin_sync <= 0;
         else
-            rd_ptr_bin_sync <= gray2bin(rd_ptr_gray_sync2);
+            rd_ptr_bin_sync <= gray2bin(rd_ptr_gray_sync2);  //è¯»æŒ‡é’ˆåŒæ­¥åˆ°äºŒè¿›åˆ?(bin)
     end
     
-    // Âú±êÖ¾Éú³É
+    // ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½
     assign full = (wr_ptr_gray_next == {~rd_ptr_gray_sync2[ADDR_WIDTH:ADDR_WIDTH-1], 
                                         rd_ptr_gray_sync2[ADDR_WIDTH-2:0]});
     
-    // ===================== ¶ÁÊ±ÖÓÓòÂß¼­ =====================
+    // ===================== ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ =====================
     
-    // ¶ÁÖ¸Õë¸üÐÂ
+    // ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿?
     always @(posedge rd_clk or negedge rd_rst_n) begin
         if (!rd_rst_n) begin
             rd_ptr_bin <= 0;
@@ -179,21 +179,21 @@ module async_fifo #(
             dout <= 0;
         end
         else if (rd_en && !empty) begin
-            // ´Ó´æ´¢Æ÷¶ÁÈ¡Êý¾Ý
+            // ï¿½Ó´æ´¢ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
             dout <= mem[rd_ptr_bin[ADDR_WIDTH-1:0]];
             
-            // ¸üÐÂ¶þ½øÖÆ¶ÁÖ¸Õë
+            // ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½Ö¸ï¿½ï¿½
             rd_ptr_bin <= rd_ptr_bin + 1;
             
-            // ¸üÐÂ¸ñÀ×Âë¶ÁÖ¸Õë
+            // ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿?
             rd_ptr_gray <= rd_ptr_gray_next;
         end
     end
     
-    // ¼ÆËãÏÂÒ»¸ö¸ñÀ×Âë¶ÁÖ¸Õë
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿?
     assign rd_ptr_gray_next = bin2gray(rd_ptr_bin + 1);
     
-    // Í¬²½Ð´Ö¸Õëµ½¶ÁÊ±ÖÓÓò£¨Á½¼¶Í¬²½Æ÷£©
+    // Í¬ï¿½ï¿½Ð´Ö¸ï¿½ëµ½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     always @(posedge rd_clk or negedge rd_rst_n) begin
         if (!rd_rst_n) begin
             wr_ptr_gray_sync1 <= 0;
@@ -205,7 +205,7 @@ module async_fifo #(
         end
     end
     
-    // ½«Í¬²½ºóµÄ¸ñÀ×ÂëÖ¸Õë×ª»»Îª¶þ½øÖÆ
+    // ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
     always @(posedge rd_clk or negedge rd_rst_n) begin
         if (!rd_rst_n)
             wr_ptr_bin_sync <= 0;
@@ -213,7 +213,7 @@ module async_fifo #(
             wr_ptr_bin_sync <= gray2bin(wr_ptr_gray_sync2);
     end
     
-    // ¿Õ±êÖ¾Éú³É
+    // ï¿½Õ±ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½
     assign empty = (rd_ptr_gray == wr_ptr_gray_sync2);
     
 endmodule
